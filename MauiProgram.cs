@@ -18,6 +18,8 @@ namespace EntityFramWorkWithoutMigrations
 
 
 
+
+
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddDbContext<AppDbContext>(
                 options =>
