@@ -1,0 +1,28 @@
+﻿@page "/counter"
+
+@inject AppDbContext dbContext
+
+ @foreach (var item in dbContext.Users)
+{
+    <div>
+
+    <p>@item.Id</p>
+    <p>@item.Name</p>
+    <p>@item.Email</p>
+    </div>
+}
+
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+
+
+    private void IncrementCount()
+    {
+        User user = new User { Name = "Farid", Email = "Farid@gmail.com" };
+        dbContext.Users.Add(user);
+        dbContext.SaveChanges();
+        StateHasChanged();
+    }
+}
